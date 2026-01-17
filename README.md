@@ -1,4 +1,4 @@
-# Intern Application Tracker
+# Intern Application Tracker (WORK IN PROGRESS)
 
 A lightweight full-stack CRUD application to help students manage and track internship and job applications throughout the recruiting cycle.
 

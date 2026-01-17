@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ApplicationTable from './ApplicationTable';
 import ApplicationForm from './ApplicationForm';
 import ApplicationDetails from './ApplicationDetails';
@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [sortOrder, setSortOrder] = useState('DESC');
 
   // Fetch applications
-  const fetchApplications = async () => {
+  const fetchApplications = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -36,11 +36,11 @@ const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [statusFilter, sortOrder]);
 
   useEffect(() => {
     fetchApplications();
-  }, [statusFilter, sortOrder]);
+  }, [fetchApplications]);
 
   // Handle create/update
   const handleSubmit = async (formData) => {
